@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  recomendations_frontend:
+    image: node:14
+    container_name: recomendations_frontend
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./api_recommendations/frontend/:/srv/app
+    working_dir: /srv/app
+    command: 'npm install axios --save'
+    command: 'npm run serve'
