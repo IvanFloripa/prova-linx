@@ -1,6 +1,14 @@
 version: '3'
 
 services:
+  api_catalog:
+    container_name: api_catalog
+    build: ./api_catalog
+    command: node app.js
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./api_catalog:/srv/app
   recomendations_frontend:
     image: node:14
     container_name: recomendations_frontend
@@ -11,3 +19,11 @@ services:
     working_dir: /srv/app
     command: 'npm install axios --save'
     command: 'npm run serve'
+  recomendations_backend:
+    container_name: recomendations_backend
+    build: ./api_recommendations/backend/
+    command: node app.js
+    ports:
+      - '3001:3001'
+    volumes:
+      - ./api_recommendations/backend/:/srv/app
