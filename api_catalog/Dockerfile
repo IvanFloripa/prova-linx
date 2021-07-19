@@ -6,6 +6,8 @@ COPY package*.json ;/
 
 RUN npm i
 
+RUN npm install express --save
+
 COPY . .
 
 EXPOSE 3000

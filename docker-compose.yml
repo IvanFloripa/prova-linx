@@ -22,7 +22,8 @@ services:
   recomendations_backend:
     container_name: recomendations_backend
     build: ./api_recommendations/backend/
-    command: node app.js
+    command: npm install axios --save
+    command: nodemon app.js
     ports:
       - '3001:3001'
     volumes:
